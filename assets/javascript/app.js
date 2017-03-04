@@ -14,20 +14,7 @@ $(".endTitle").hide();
 $(".startButton").on("click",function () {
 	timer();
 
-	$(".endButton").on("click",function () {
-		clearInterval(intervalId);
-        $(".questions").hide();
-		$(".endButton").hide();
-		$(".endTitle").show();
-		// show the number of correct asnwers
-		$(".correctAnswers").html("Correct Answers: "+ correctAnswers);
-		// show the number of incorrect answers
-		$(".wrongAnswers").html("Wrong Answers: "+ wrongAnswers);
-		// show the number of unansered questions
-		$(".unAnswered").html("unanswered: "+ unAnswered);
-		//hide the questions 
-		$(".questions").hide();
-	});
+	
 
 
 	
@@ -36,42 +23,9 @@ $(".startButton").on("click",function () {
 	$(".endButton").show();
 
 
-			
-	if ($('.goodAnswer0:checked')) {
-		correctAnswers++;
-	}else if($('.wrongAnswer0:checked')){
-		wrongAnswers++
-	}else{
-		unAnswered++
-	}		
-
-	if ($('.goodAnswer1:checked')) {
-		correctAnswers++;
-	}else if($('.wrongAnswer1:checked')){
-		wrongAnswers++
-	}else{
-		unAnswered++
-	}	
-
-	if ($('.goodAnswer2 :checked')) {
-		correctAnswers++;
-	}else if($('.wrongAnswer2:checked')){
-		wrongAnswers++
-	}else{
-		unAnswered++
-	}	
-
-	if ($('.goodAnswer3:checked')) {
-		correctAnswers++;
-	}else if($('.wrongAnswer3:checked')){
-		wrongAnswers++
-	}else{
-		unAnswered++
-	}	
-
 		});
 
-
+$(".endButton").on("click",showResults);
 
 
 
@@ -86,7 +40,16 @@ function timer(){
       number--;
       $(".timer").html("Time remaining: " + number);
       if (number === 0) {
-        clearInterval(intervalId);
+      	showResults();
+        
+      }
+    }
+    run();
+}
+
+function showResults () {
+		calculateScore();
+		clearInterval(intervalId);
         $(".questions").hide();
 		$(".endButton").hide();
 		$(".endTitle").show();
@@ -98,9 +61,38 @@ function timer(){
 		$(".unAnswered").html("unanswered: "+ unAnswered);
 		//hide the questions 
 		$(".questions").hide();
-        
-      }
-    }
-    run();
-}
+	}
 
+function calculateScore () {
+	if ($('.goodAnswer0').is(":checked")) {
+		correctAnswers++;
+	}else if($('.wrongAnswer0').is(":checked")){
+		wrongAnswers++
+	}else{
+		unAnswered++
+	}		
+
+	if ($('.goodAnswer1').is(":checked")) {
+		correctAnswers++;
+	}else if($('.wrongAnswer1').is(":checked")){
+		wrongAnswers++
+	}else{
+		unAnswered++
+	}	
+
+	if ($('.goodAnswer2').is(":checked")) {
+		correctAnswers++;
+	}else if($('.wrongAnswer2').is(":checked")){
+		wrongAnswers++
+	}else{
+		unAnswered++
+	}	
+
+	if ($('.goodAnswer3').is(":checked")) {
+		correctAnswers++;
+	}else if($('.wrongAnswer3').is(":checked")){
+		wrongAnswers++
+	}else{
+		unAnswered++
+	}
+}
