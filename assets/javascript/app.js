@@ -74,7 +74,7 @@ function showResults () {
 		// show the number of unansered questions
 		$(".unAnswered").html("unanswered: "+ unAnswered);
 		//hide the questions 
-		// $(".questions").hide(); // line 64 makes this redundant 😬
+		// $(".questions").hide(); // line 67 makes this redundant 😬
 		// Would also be nice to have a reset game button instead of
 		// having to reload the page.
 	}
