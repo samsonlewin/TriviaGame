@@ -75,6 +75,8 @@ function showResults () {
 		$(".unAnswered").html("unanswered: "+ unAnswered);
 		//hide the questions 
 		// $(".questions").hide(); // line 64 makes this redundant 😬
+		// Would also be nice to have a reset game button instead of
+		// having to reload the page.
 	}
 
 function calculateScore () {
